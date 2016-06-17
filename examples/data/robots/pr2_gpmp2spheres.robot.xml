@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Robot name="pr2">
+  <KinBody file="pr2-beta-static.zae">
+  <orgpmp2>
+    <spheres>
+      <sphere link="r_shoulder_pan_link" pos=" -0.0100         0         0" radius="0.180000"/>
+
+      <sphere link="r_upper_arm_roll_link" pos="0.0150    0.2200         0" radius="0.110000"/>
+      <sphere link="r_upper_arm_roll_link" pos="0.0350    0.1400         0" radius="0.080000"/>
+      <sphere link="r_upper_arm_roll_link" pos="0.0350    0.0725         0 " radius="0.080000"/>
+      <sphere link="r_upper_arm_roll_link" pos="0         0         0" radius="0.105000"/>
+
+      <sphere link="r_forearm_roll_link" pos="-0.0050    0.1910         0" radius="0.075000"/>
+      <sphere link="r_forearm_roll_link" pos="0.0100    0.1210   -0.0250" radius="0.055000"/>
+      <sphere link="r_forearm_roll_link" pos="0.0100    0.1210    0.0250" radius="0.055000"/>
+      <sphere link="r_forearm_roll_link" pos="0.0150    0.0560   -0.0275" radius="0.050000"/>
+      <sphere link="r_forearm_roll_link" pos="0.0150    0.0560    0.0275" radius="0.050000"/>
+      <sphere link="r_forearm_roll_link" pos="0.0050    0.0010   -0.0225" radius="0.050000"/>
+      <sphere link="r_forearm_roll_link" pos="0.0050    0.0010    0.0225" radius="0.050000"/>
+
+      <sphere link="r_wrist_roll_link" pos="0   -0.0175    0.0725" radius="0.040000"/>
+      <sphere link="r_wrist_roll_link" pos="0    0.0175    0.0725" radius="0.040000"/>
+      <sphere link="r_wrist_roll_link" pos="0         0    0.0925" radius="0.040000"/>
+      
+      <sphere link="r_wrist_roll_link" pos="0    0.0360    0.1100" radius="0.040000"/>
+      <sphere link="r_wrist_roll_link" pos="0    0.0270    0.1550" radius="0.035000"/>
+      <sphere link="r_wrist_roll_link" pos="0    0.0090    0.1800" radius="0.030000"/>
+      <sphere link="r_wrist_roll_link" pos="0    0.0095    0.2050" radius="0.020000"/>
+
+      <sphere link="r_wrist_roll_link" pos="0   -0.0360    0.1100" radius="0.040000"/>
+      <sphere link="r_wrist_roll_link" pos="0   -0.0270    0.1550" radius="0.035000"/>
+      <sphere link="r_wrist_roll_link" pos="0   -0.0090    0.1800" radius="0.030000"/>
+      <sphere link="r_wrist_roll_link" pos="0   -0.0095    0.2050" radius="0.020000"/>
+
+    </spheres>
+  </orgpmp2>
+  </KinBody>
+</Robot>

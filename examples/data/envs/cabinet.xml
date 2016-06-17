@@ -1,0 +1,9 @@
+<KinBody name="cabinet">
+  <Body type="static" name="cabinet">
+    <Geom type="trimesh">
+      <Render>stl/cabinet.stl</Render>
+      <Data>stl/cabinet.stl</Data>
+      <diffuseColor>0.4 0.4 0.2</diffuseColor>
+    </Geom>
+  </Body>
+</KinBody>

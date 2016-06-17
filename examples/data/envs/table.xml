@@ -1,0 +1,9 @@
+<KinBody name="table">
+  <Body type="static" name="table">
+    <Geom type="trimesh">
+      <Render>stl/table.stl</Render>
+      <Data>stl/table.stl</Data>
+      <diffuseColor>0.8 0.6 0.16</diffuseColor>
+    </Geom>
+  </Body>
+</KinBody>

@@ -1,0 +1,9 @@
+<KinBody name="cup">
+  <Body type="static" name="cup">
+    <Geom type="trimesh">
+      <Render>stl/cup.stl</Render>
+      <Data>stl/cup.stl</Data>
+      <diffuseColor>1 0 0</diffuseColor>
+    </Geom>
+  </Body>
+</KinBody>

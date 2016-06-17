@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- this is a modified version of barrettwam.robot.xml
+     take from OpenRAVE 0.6.4 (r3190) -->
+<Robot name="BarrettWAM">
+  <KinBody>
+  	<translation>0 0 0</translation>
+  	<RotationAxis>0 0 0 0</RotationAxis>
+    <KinBody file="wam7.kinbody.xml"/>
+    <KinBody file="barretthand.kinbody.xml"/>
+    
+    <kinbody>
+      <body name="handbase">
+        <offsetfrom>wam7</offsetfrom>
+      </body>
+      <joint name="dummyhand" type="hinge" enable="false">
+        <body>wam7</body>
+        <body>handbase</body>
+        <limits>0 0</limits>
+      </joint>
+    </kinbody>
+
+    <orgpmp2>
+      <spheres>
+        <!-- shoulder spheres -->
+        <sphere link="wam1"      pos=" 0.0  0.0  0.0 " radius="0.15" />
+        <!-- upper arm spheres -->
+        <sphere link="wam2"      pos=" 0.0  0.0  0.2 " radius="0.06" />
+        <sphere link="wam2"      pos=" 0.0  0.0  0.3 " radius="0.06" />
+        <sphere link="wam2"      pos=" 0.0  0.0  0.4 " radius="0.06" />
+        <sphere link="wam2"      pos=" 0.0  0.0  0.5 " radius="0.06" />
+        <!-- elbow knuckle spheres -->
+        <sphere link="wam3"      pos=" 0.0  0.0  0.0 " radius="0.06" />
+        <!-- forearm spheres -->
+        <sphere link="wam4"      pos=" 0.0  0.0  0.1 " radius="0.06" />
+        <sphere link="wam4"      pos=" 0.0  0.0  0.2 " radius="0.06" />
+        <sphere link="wam4"      pos=" 0.0  0.0  0.3 " radius="0.06" />
+        <!-- hand sphere -->
+        <sphere link="wam6"      pos=" 0.0  0.0  0.1 " radius="0.06" />
+        <!-- finger spheres -->
+        <sphere link="wam7"      pos=" 0.1  -0.025 0.08 " radius="0.04" />
+        <sphere link="wam7"      pos=" 0.1   0.025 0.08 " radius="0.04" />
+        <sphere link="wam7"      pos="-0.1   0     0.08 " radius="0.04" />
+        <sphere link="wam7"      pos=" 0.15 -0.025 0.13 " radius="0.04" />
+        <sphere link="wam7"      pos=" 0.15  0.025 0.13 " radius="0.04" />
+        <sphere link="wam7"      pos="-0.15  0     0.13 " radius="0.04" />
+      </spheres>
+    </orgpmp2>
+  </KinBody>
+
+  <Manipulator name="arm">
+    <base>wam0</base>
+    <effector>wam7</effector>
+    <iksolver>WAM7ikfast 0.05</iksolver>
+    <Translation>0 0 0.22</Translation>
+    <joints>JF1 JF2 JF3 JF4</joints>
+    <closingdirection>1 1 1 0</closingdirection>
+    <direction>0 0 1</direction>
+  </Manipulator>
+ </Robot>

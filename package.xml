@@ -1,0 +1,28 @@
+<?xml version="0.1.0"?>
+<package>
+  <name>orgpmp2</name>
+  <version>0.1.0</version>
+  <description>
+    OpenRAVE plugin that implements the GPMP2 trajectory optimizer using GTSAM.
+  </description>
+  <url type="repository">https://bitbucket.org/gtrll/gp_motion_planning.git</url>
+  <maintainer email="mmukadam3@gatech.edu">Mustafa Mukadam</maintainer>
+  <maintainer email="jdong@gatech.edu">Jing Dong</maintainer>
+  <author email="mmukadam3@gatech.edu">Mustafa Mukadam</author>
+  <author email="jdong@gatech.edu">Jing Dong</author>
+  <license>GPL</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>atlas</build_depend>
+  <build_depend>libblas-dev</build_depend>
+  <build_depend>liblapacke</build_depend>
+  <build_depend>libgsl</build_depend>
+  <build_depend>openrave_catkin</build_depend>
+  <build_depend>libgtsam</build_depend>
+  <build_depend>libgpmp2</build_depend>
+  <run_depend>atlas</run_depend>
+  <run_depend>liblapacke</run_depend>
+  <run_depend>libgsl</run_depend>
+  <run_depend>openrave_catkin</run_depend>
+  <run_depend>libgtsam</run_depend>
+  <run_depend>libgpmp2</run_depend>
+</package>

@@ -1,0 +1,9 @@
+<KinBody name="pringles">
+  <Body type="static" name="pringles">
+    <Geom type="trimesh">
+      <Render>stl/pringles.stl</Render>
+      <Data>stl/pringles.stl</Data>
+      <diffuseColor>0.89 0.8 0.34</diffuseColor>
+    </Geom>
+  </Body>
+</KinBody>

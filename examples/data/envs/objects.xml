@@ -1,0 +1,18 @@
+<Environment>
+	<KinBody file="soda.xml">
+		<Translation>0.01 0.83 -0.191</Translation>
+		<RotationAxis>0 0 0 0</RotationAxis>
+	</KinBody>
+	<KinBody file="milk_bottle.xml">
+		<Translation>-0.31 0.83 -0.191</Translation>
+		<RotationAxis>0 0 0 0</RotationAxis>
+	</KinBody>
+	<KinBody file="cup.xml">
+		<Translation>-0.16 0.96 -0.191</Translation>
+		<RotationAxis>0 0 0 0</RotationAxis>
+	</KinBody>
+	<KinBody file="pringles.xml">
+		<Translation>0.14 0.96 -0.191</Translation>
+		<RotationAxis>0 0 0 0</RotationAxis>
+	</KinBody>
+</Environment>

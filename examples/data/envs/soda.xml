@@ -1,0 +1,9 @@
+<KinBody name="soda">
+  <Body type="static" name="soda">
+    <Geom type="trimesh">
+      <Render>stl/soda.stl</Render>
+      <Data>stl/soda.stl</Data>
+      <diffuseColor>0.35 0.7 0.31</diffuseColor>
+    </Geom>
+  </Body>
+</KinBody>

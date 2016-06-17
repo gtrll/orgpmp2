@@ -1,0 +1,9 @@
+<KinBody name="milk_bottle">
+  <Body type="static" name="milk_bottle">
+    <Geom type="trimesh">
+      <Render>stl/milk_bottle.stl</Render>
+      <Data>stl/milk_bottle.stl</Data>
+      <diffuseColor>0.47 0.9 0.98</diffuseColor>
+    </Geom>
+  </Body>
+</KinBody>
