@@ -14,7 +14,7 @@ Note that SDF computation takes longer with smaller cell size and larger extents
 
 GPMP2 parameters
 -----
-More information on parameters associated with the GPMP2 algorithm can be found in [GPMP2's doc](https://github.com/gtrll/gpmp2/doc/Parameters.md).
+More information on parameters associated with the GPMP2 algorithm can be found in [GPMP2's documentation](https://github.com/gtrll/gpmp2/wiki).
 
 - **robot**: openrave robot object.
 - **end_conf**: goal in configuration space.
