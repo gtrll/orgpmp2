@@ -37,8 +37,8 @@ Initializing trajectory
 ```python
 st = RaveCreateTrajectory(e,'')
 st.Init(r.GetActiveConfigurationSpecification())
-st.Insert(0,init_p) #position
-st.Insert(total_step+1,init_v) # velocity
+init_traj = numpy.append(init_p,init_v) # (position, velocity)
+st.Insert(0,init_traj)
 ```
 See initializing with trajectory [example](../examples/gpmp2_wam_withtraj.py) on WAM for more details.
 
