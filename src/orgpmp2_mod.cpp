@@ -984,7 +984,7 @@ int mod::create(int argc, char * argv[], std::ostream& sout)
     Values init_values, results;
     if (starttraj.get()) {
       RAVELOG_INFO("Initializing from a passed trajectory ...\n");
-      for (i=0; i<2*r->n_points; i++)
+      for (i=0; i<2*r->total_step; i++)
       {
         std::vector<OpenRAVE::dReal> vec;
         starttraj->GetWaypoint(i, vec, r->robot->GetActiveConfigurationSpecification());

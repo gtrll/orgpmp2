@@ -60,12 +60,12 @@ st.Init(r.GetActiveConfigurationSpecification())
 zero = numpy.zeros(len(start_joints))
 init_p = []
 init_v = []
-for i in range(total_step+1):
-  mid = (1-i/(total_step*1.0))*start_joints + i/(total_step*1.0)*end_joints
+for i in range(total_step):
+  mid = (1-i/((total_step-1)*1.0))*start_joints + i/((total_step-1)*1.0)*end_joints
   init_p = numpy.append(init_p,mid)
   init_v = numpy.append(init_v,zero)
-st.Insert(0,init_p) #position
-st.Insert(total_step+1,init_v) # velocity
+init_traj = numpy.append(init_p,init_v)
+st.Insert(0,init_traj)
 
 # Run gpmp2
 try:
