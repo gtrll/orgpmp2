@@ -316,7 +316,7 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
   }
 
   // Creating grid
-  temp = 1.0; // free space is 1.0 and is changed to 0.0 in floodfill
+  temp = 0.0; // free space is 0.0
   err = cd_grid_create_sizearray(&sdf_new.grid, &temp, sizeof(double), world_dim, gsdf_sizearray);
   if (err) throw OpenRAVE::openrave_exception("Not enough memory for distance field!");
 
@@ -406,7 +406,7 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
     {
       // Print out progress info
       if (idx % 100000 == 0)
-      RAVELOG_INFO("idx=%d (%5.1f%%)...\n", (int)idx, (100.0*((double)idx)/((double)g_obs->ncells)));
+        RAVELOG_INFO("idx=%d (%5.1f%%)...\n", (int)idx, (100.0*((double)idx)/((double)g_obs->ncells)));
       // set cube location
       t.identity();
       cd_kin_pose_identity(pose_cube);
@@ -433,16 +433,6 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
     // remove cube
     this->e->Remove(cube);
 
-    // assume the point in the very corner x=y=z is free
-    RAVELOG_INFO("performing flood fill ...\n");
-    idx = 0;
-    // Flood fill spanning from the first cell
-    cd_grid_flood_fill(g_obs, idx, 0, (int (*)(void *, void *))replace_1_to_0, 0);
-    // change any remaining 1.0 cells to HUGE_VAL (assumed inside of obstacles)
-    for (idx=0; idx<g_obs->ncells; idx++)
-      if (*(double *)cd_grid_get_index(g_obs, idx) == 1.0)
-        *(double *)cd_grid_get_index(g_obs, idx) = HUGE_VAL;
-
     // compute the signed distance field (in the module instance)
     RAVELOG_INFO("computing signed distance field ...\n");
     cd_grid_double_bin_sdf(&sdf_new.grid, g_obs);
@@ -459,7 +449,7 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
       i = fwrite(sdf_new.grid->data, sdf_new.grid->cell_size, sdf_new.grid->ncells, fp);
       fclose(fp);
       if (i != sdf_new.grid->ncells)
-      RAVELOG_ERROR("error, couldn't write the sdf data to the file!\n");
+        RAVELOG_ERROR("error, couldn't write the sdf data to the file!\n");
     }
   }
 
