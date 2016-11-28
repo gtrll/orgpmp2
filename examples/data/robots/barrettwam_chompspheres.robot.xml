@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- this is a modified version of barrettwam.robot.xml
+     take from OpenRAVE 0.6.4 (r3190) -->
+<Robot name="BarrettWAM">
+  <KinBody>
+  	<translation>0 0 0</translation>
+  	<RotationAxis>0 0 0 0</RotationAxis>
+    <KinBody file="robots/wam7.kinbody.xml"/>
+    <KinBody file="robots/barretthand.kinbody.xml"/>
+    
+    <kinbody>
+      <body name="handbase">
+        <offsetfrom>wam7</offsetfrom>
+      </body>
+      <joint name="dummyhand" type="hinge" enable="false">
+        <body>wam7</body>
+        <body>handbase</body>
+        <limits>0 0</limits>
+      </joint>
+    </kinbody>
+
+    <!-- data for the orcdchomp module -->
+    <orcdchomp>
+      <spheres>
+        <!-- shoulder spheres -->
+        <sphere link="wam0"      pos=" 0.22  0.14 0.346" radius="0.15" />
+        <!-- upper arm spheres -->
+        <sphere link="wam2"      pos=" 0.0   0.0  0.2 " radius="0.06" />
+        <sphere link="wam2"      pos=" 0.0   0.0  0.3 " radius="0.06" />
+        <sphere link="wam2"      pos=" 0.0   0.0  0.4 " radius="0.06" />
+        <sphere link="wam2"      pos=" 0.0   0.0  0.5 " radius="0.06" />
+        <!-- elbow knuckle spheres -->
+        <sphere link="wam3"      pos="0.0  0.0  0.0" radius="0.06" />
+        <!-- forearm spheres -->
+        <sphere link="wam4"      pos="0.0 0.0  0.2 " radius="0.06" />
+        <sphere link="wam4"      pos="0.0 0.0  0.1 " radius="0.06" />
+        <sphere link="wam4"      pos="0.0 0.0  0.3 " radius="0.06" />
+        <!-- hand sphere -->
+        <sphere link="wam6"      pos=" 0.0   0.0  0.1 " radius="0.06" />
+        <!-- finger spheres (inner links) -->
+        <sphere link="Finger0-1" pos=" 0.05  -0.01 0.0 " radius="0.04" />
+        <sphere link="Finger1-1" pos=" 0.05  -0.01 0.0 " radius="0.04" />
+        <sphere link="Finger2-1" pos=" 0.05  -0.01 0.0 " radius="0.04" />
+        <!-- finger spheres (tip links) -->
+        <sphere link="Finger0-2" pos=" 0.05   0.0  0.0 " radius="0.04" />
+        <sphere link="Finger1-2" pos=" 0.05   0.0  0.0 " radius="0.04" />
+        <sphere link="Finger2-2" pos=" 0.05   0.0  0.0 " radius="0.04" />
+      </spheres>
+    </orcdchomp>
+  </KinBody>
+
+  <Manipulator name="arm">
+    <base>wam0</base>
+    <effector>wam7</effector>
+    <iksolver>WAM7ikfast 0.05</iksolver>
+    <Translation>0 0 0.22</Translation>
+    <joints>JF1 JF2 JF3 JF4</joints>
+    <closingdirection>1 1 1 0</closingdirection>
+    <direction>0 0 1</direction>
+  </Manipulator>
+ </Robot>
+
