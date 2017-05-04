@@ -5,6 +5,7 @@
 
 #include <time.h>
 #include <cblas.h>
+#include <string>
 
 extern "C" {
 #include "utils/grid.h"
@@ -252,6 +253,7 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
   struct timespec ticks_tic;
   struct timespec ticks_toc;
   int sdf_data_loaded;
+  int save_sdf = 0;
 
   // lock environment
   lockenv = OpenRAVE::EnvironmentMutex::scoped_lock(this->e->GetMutex());
@@ -289,6 +291,8 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
       res = atof(argv[++i]);
     else if (strcmp(argv[i],"cache_filename")==0 && i+1<argc)
       cache_filename = argv[++i];
+    else if (strcmp(argv[i],"save_sdf")==0 && i+1<argc)
+      save_sdf = atoi(argv[++i]);
     else {
       RAVELOG_ERROR("argument %s not known!\n", argv[i]);
       throw OpenRAVE::openrave_exception("Bad arguments!");
@@ -459,7 +463,7 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
   this->n_sdfs++;
 
   // assign sdf to gtsam variable
-  RAVELOG_INFO("Saving sdf to gtsam variable.\n");
+  RAVELOG_INFO("Saving sdf to gpmp2 variable.\n");
 
   {
     using namespace std;
@@ -482,22 +486,14 @@ int mod::computedistancefield(int argc, char * argv[], std::ostream& sout)
     Point3 gorigin(origin[0],origin[1],origin[2]);
 
     this->gtsam_sdf = gpmp2::SignedDistanceField(gorigin, res, env_sdf);
-/*
-    // save to text file
-    std::ofstream myFile;
-    myFile.open((std::string(getenv("HOME"))+"/Desktop/sdf.txt").c_str(), std::ios::app);
-    for (k=0; k<gsize_z; k++) {
-      for (i=0; i<gsize_y; i++) {
-        for (j=0; j<gsize_x; j++) {
-          myFile<<env_sdf[k](i,j)<<"\t";
-        }
-        myFile<<std::endl;
-      }
-      myFile<<std::endl;
-      myFile<<std::endl;
+
+    if (save_sdf)
+    {
+      string save_file(cache_filename);
+      save_file = save_file.substr(0,save_file.find_last_of('.'))+".bin";
+      RAVELOG_INFO("Saving gpmp2 sdf to .bin file.\n");
+      gtsam_sdf.saveSDF(save_file);
     }
-    myFile.close();
-*/
   }
   return 0;
 }
