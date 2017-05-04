@@ -26,7 +26,7 @@ def viewspheres(mod, robot=None, releasegil=False):
    return mod.SendCommand(cmd, releasegil)
 
 def computedistancefield(mod, res=None, centroid=None, extents=None,
-   cache_filename=None, releasegil=False):
+   cache_filename=None, save_sdf=None, releasegil=False):
    cmd = 'computedistancefield'
    if res is not None:
       cmd += ' res %f' % res
@@ -36,6 +36,8 @@ def computedistancefield(mod, res=None, centroid=None, extents=None,
       cmd += ' extents %s' % shquot(' '.join([str(v) for v in extents]))
    if cache_filename is not None:
       cmd += ' cache_filename %s' % shquot(cache_filename)
+   if save_sdf is not None:
+      cmd += ' save_sdf %d' % save_sdf
    print 'cmd:', cmd
    return mod.SendCommand(cmd, releasegil)
 
