@@ -2,6 +2,15 @@
 Changelog for orgpmp2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.0 (2017-06-16)
+------------------
+* Fix initializing with given trajectories
+* Fix bug in signed distance field (sdf) generation when using some parameters
+* Deprecated flood fill in sdf generation
+* Add functionality to save sdf to 
+* Add more robot files and WAM dataset used in benchmarks
+* Contributors: Mustafa Mukadam
+
 0.1.0 (2016-06-16)
 ------------------
 * Initial release

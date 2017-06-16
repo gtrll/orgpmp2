@@ -1,7 +1,7 @@
 <?xml version="0.1.0"?>
 <package>
   <name>orgpmp2</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>
     OpenRAVE plugin that implements the GPMP2 trajectory optimizer using GTSAM.
   </description>
